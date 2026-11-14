@@ -1,40 +1,56 @@
 
-# BUILD GUIDE — AETHERFALL
+# AETHERFALL — ANDROID BUILD GUIDE
 
-## Requirements
+## Project Information
+
+Name: Aetherfall: The Lost Frontier
+
+Platform: Android
+
+Language: Kotlin
+
+Rendering: OpenGL ES 3.0
+
+UI: Jetpack Compose
+
+Build System: Gradle Kotlin DSL
+
+## Required Environment
 
 - JDK 17
+- Android Gradle Plugin 9.1.1
 - Gradle 9.3.1
 - Android SDK Platform 36.1
-- Android Build Tools 36.1.0
-- Android Gradle Plugin 9.1.1
+- Android SDK Build Tools 36.0.0
 - Kotlin 2.2.10
 
-## Build Debug APK
+## 1. Build Debug APK
 
-Open terminal in project root.
-
-Run:
+From the repository root:
 
 ```bash
 gradle --no-daemon :app:testDebugUnitTest
 ```
 
-Then:
+After tests:
 
 ```bash
 gradle --no-daemon :app:assembleDebug
 ```
 
-APK location:
+APK output:
 
 ```text
 app/build/outputs/apk/debug/app-debug.apk
 ```
 
-## Build Release AAB
+Debug APK uses the standard Android Gradle Plugin debug signing configuration.
 
-Prepare an upload keystore with alias:
+A custom release keystore is not required.
+
+## 2. Build Release AAB
+
+Prepare a keystore with alias:
 
 ```text
 upload
@@ -48,10 +64,10 @@ export STORE_PASSWORD=your_store_password
 export KEY_PASSWORD=your_key_password
 ```
 
-Run:
+Build:
 
 ```bash
-gradle :app:bundleRelease
+gradle --no-daemon :app:bundleRelease
 ```
 
 Output:
@@ -60,43 +76,58 @@ Output:
 app/build/outputs/bundle/release/app-release.aab
 ```
 
-## GitHub Actions
+## 3. GitHub Actions Build
 
-The repository includes:
+Workflow location:
 
 ```text
 .github/workflows/android-build.yml
 ```
 
-Every push to main triggers:
+The workflow performs:
 
-1. Java setup.
-2. Gradle setup.
-3. Android SDK setup.
-4. Project verification.
-5. Unit testing.
-6. Debug APK compilation.
-7. APK validation.
-8. Artifact upload.
+1. Repository checkout.
+2. JDK installation.
+3. Android SDK installation.
+4. Gradle installation.
+5. Project structure validation.
+6. Kotlin unit tests.
+7. Debug APK compilation.
+8. APK output validation.
+9. APK artifact upload.
+10. Optional release AAB compilation.
 
-Release AAB is optional and requires signing credentials.
+## 4. Download APK Using Android Phone
 
-For GitHub Actions release signing, configure these repository secrets:
+1. Open the GitHub repository.
+2. Open the Actions tab.
+3. Select Aetherfall Android APK Build.
+4. Open the successful workflow run.
+5. Find Artifacts.
+6. Download Aetherfall-Debug-APK.
+7. Extract the downloaded ZIP.
+8. Install app-debug.apk.
+
+## 5. Release Signing Secrets
+
+For release AAB generation, configure these repository secrets:
 
 - ANDROID_KEYSTORE_BASE64
 - STORE_PASSWORD
 - KEY_PASSWORD
 
-The debug APK does not require a release keystore.
+ANDROID_KEYSTORE_BASE64 must contain the Base64 representation of the upload keystore.
 
-## Download APK
+Without these secrets, debug APK generation continues normally and release generation is skipped.
 
-Open the repository's Actions page.
+## 6. Important Build Notes
 
-Select the successful Android APK build.
+This repository currently uses Gradle 9.3.1.
 
-Download the artifact named:
+The workflow installs that exact Gradle version directly because the repository does not currently contain the Gradle wrapper executable and JAR.
 
-```text
-Aetherfall-Debug-APK
-```
+Do not run ./gradlew until the wrapper files have been generated.
+
+Do not remove the existing application source files.
+
+Do not remove the OpenGL renderer, game simulation, UI, save system, or game assets when repairing build configuration.
