@@ -1,6 +1,16 @@
 
 import com.google.gms.googleservices.GoogleServicesPlugin.MissingGoogleServicesStrategy
 
+val releaseKeystorePath = System.getenv("KEYSTORE_PATH").orEmpty()
+val releaseStorePassword = System.getenv("STORE_PASSWORD").orEmpty()
+val releaseKeyPassword = System.getenv("KEY_PASSWORD").orEmpty()
+
+val releaseSigningReady =
+    releaseKeystorePath.isNotBlank() &&
+    releaseStorePassword.isNotBlank() &&
+    releaseKeyPassword.isNotBlank() &&
+    file(releaseKeystorePath).isFile
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -22,6 +32,7 @@ android {
         applicationId = "com.aistudio.aetherfall.kxmpzq"
         minSdk = 24
         targetSdk = 36
+
         versionCode = 1
         versionName = "1.0.0"
 
@@ -30,19 +41,22 @@ android {
     }
 
     signingConfigs {
-        create("release") {
-            val keystorePath =
-                System.getenv("KEYSTORE_PATH")
-                    ?: "${rootDir}/my-upload-key.jks"
-
-            storeFile = file(keystorePath)
-            storePassword = System.getenv("STORE_PASSWORD")
-            keyAlias = "upload"
-            keyPassword = System.getenv("KEY_PASSWORD")
+        if (releaseSigningReady) {
+            create("release") {
+                storeFile = file(releaseKeystorePath)
+                storePassword = releaseStorePassword
+                keyAlias = "upload"
+                keyPassword = releaseKeyPassword
+            }
         }
     }
 
     buildTypes {
+        debug {
+            // Gunakan debug signing bawaan Android Gradle Plugin.
+            // Tidak membutuhkan debug.keystore buatan sendiri.
+        }
+
         release {
             isCrunchPngs = false
             isMinifyEnabled = false
@@ -54,15 +68,10 @@ android {
                 "proguard-rules.pro"
             )
 
-            signingConfig =
-                signingConfigs.getByName("release")
-        }
-
-        debug {
-            // Gunakan debug signing bawaan Android Gradle Plugin.
-            // Tidak memerlukan debug.keystore di repository.
-            signingConfig =
-                signingConfigs.getByName("debug")
+            if (releaseSigningReady) {
+                signingConfig =
+                    signingConfigs.getByName("release")
+            }
         }
     }
 
@@ -131,9 +140,11 @@ dependencies {
     androidTestImplementation(
         platform(libs.androidx.compose.bom)
     )
+
     androidTestImplementation(
         libs.androidx.compose.ui.test.junit4
     )
+
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.runner)
@@ -141,5 +152,8 @@ dependencies {
     debugImplementation(
         libs.androidx.compose.ui.test.manifest
     )
-    debugImplementation(libs.androidx.compose.ui.tooling)
+
+    debugImplementation(
+        libs.androidx.compose.ui.tooling
+    )
 }
