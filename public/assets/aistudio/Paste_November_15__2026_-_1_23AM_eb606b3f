@@ -1,0 +1,1450 @@
+MASTER PROMPT — PROJECT AETHERFALL
+
+FULL 3D OPEN WORLD ACTION ADVENTURE — NATIVE ANDROID GAME
+
+Bertindaklah sebagai tim pengembang game profesional yang terdiri dari Senior Game Director, Game Designer, Senior Godot Engineer, 3D Environment Artist, Character Artist, Technical Artist, Animator, Gameplay Programmer, AI Programmer, UI/UX Designer, Sound Designer, dan Android Build Engineer.
+
+Tugasmu adalah MEMBANGUN GAME 3D OPEN WORLD ACTION ADVENTURE YANG BENAR-BENAR BISA DIMAINKAN DI ANDROID.
+
+Jangan hanya membuat konsep, desain, mockup, demo menu, atau prototipe kosong. Buat proyek game yang memiliki sistem gameplay lengkap, dunia 3D yang dapat dijelajahi, karakter dengan animasi, pertarungan, musuh dengan AI, misi, NPC, inventory, equipment, save system, audio, UI, dan seluruh struktur proyek yang diperlukan untuk menghasilkan APK Android.
+
+Nama proyek: AETHERFALL: THE LOST FRONTIER
+
+Genre:
+
+- Open World
+- Action Adventure
+- Third-Person RPG
+- Exploration
+- Fantasy Adventure
+
+Target platform:
+
+- Android 64-bit (ARM64-v8a)
+- APK dan AAB
+- Android 10 atau lebih baru
+- Orientasi landscape
+- Offline single-player
+- Tidak memerlukan koneksi internet untuk bermain
+
+Game harus berjalan langsung di Android. DILARANG membuat game berbasis HTML, CSS, JavaScript, React, WebView, atau emulator PC.
+
+---
+
+1. TEKNOLOGI DAN ENGINE
+
+Gunakan spesifikasi berikut:
+
+- Engine: Godot Engine 4.7.2
+- Bahasa pemrograman: GDScript
+- Rendering: Godot Mobile Renderer
+- Graphics API: Vulkan pada perangkat yang mendukung
+- Physics: Godot Physics
+- Target arsitektur Android: ARM64-v8a
+- Format model 3D: GLB/GLTF
+- Format tekstur: PNG, WebP, atau format yang kompatibel
+- Format audio: OGG dan WAV
+- Sistem input: Android Touch Controls dan gamepad
+- Sistem penyimpanan: JSON atau Resource-based Save System
+
+Gunakan GDScript bertipe secara konsisten.
+
+Aturan pemrograman:
+
+1. Semua file harus menggunakan sintaks Godot 4.x yang valid.
+2. Deklarasikan tipe variabel, fungsi, parameter, dan nilai kembalian jika memungkinkan.
+3. Hindari penggunaan Variant yang tidak diperlukan.
+4. Jangan menggunakan API Godot 3.x.
+5. Jangan membuat referensi node yang tidak tersedia.
+6. Pastikan seluruh path scene dan resource benar.
+7. Jangan menggunakan fungsi atau properti yang sudah tidak didukung.
+8. Periksa circular dependency dan dependency antar-script.
+9. Jangan abaikan error parser atau warning yang dapat menyebabkan proyek gagal dijalankan.
+10. Setiap sistem harus benar-benar terhubung ke gameplay.
+
+Struktur rendering harus dioptimalkan untuk Android kelas menengah.
+
+---
+
+2. KONSEP DAN DUNIA GAME
+
+Buat dunia fantasi open world bernama AETHERFALL.
+
+Pemain berperan sebagai seorang petualang yang menjelajahi sebuah wilayah luas setelah munculnya fenomena misterius bernama The Fracture.
+
+Dunia game memiliki lingkungan yang berbeda-beda, rahasia tersembunyi, reruntuhan peradaban kuno, desa, musuh, dungeon, dan boss.
+
+Buat dunia yang terasa hidup dan bukan sekadar kumpulan objek kosong.
+
+Area dunia
+
+Buat minimal lima wilayah yang dapat dijelajahi:
+
+A. Greenveil Forest
+
+- Hutan luas dengan pepohonan lebat.
+- Rumput, semak, batu, dan tanaman.
+- Sungai dan air terjun.
+- Satwa liar.
+- Reruntuhan kuno.
+- Musuh yang bersembunyi di dalam hutan.
+
+B. Ashen Highlands
+
+- Pegunungan berbatu.
+- Gunung berapi.
+- Asap dan partikel abu.
+- Gua tersembunyi.
+- Jembatan kayu.
+- Jalur pendakian.
+
+C. Silverlake Valley
+
+- Danau luas.
+- Desa nelayan.
+- Air yang dapat dilalui dengan perahu.
+- Rumah-rumah penduduk.
+- Jembatan dan dermaga.
+
+D. Forgotten Kingdom
+
+- Kota kerajaan yang telah hancur.
+- Kastil besar.
+- Bangunan kuno.
+- Ruang bawah tanah.
+- Dungeon.
+- Musuh elite dan boss.
+
+E. Dawnreach Village
+
+- Desa utama.
+- NPC dengan aktivitas harian.
+- Toko.
+- Pandai besi.
+- Tempat menerima quest.
+- Tempat pemain melakukan upgrade.
+
+Setiap wilayah harus mempunyai identitas visual dan gameplay tersendiri.
+
+Ukuran dunia
+
+Buat dunia yang cukup luas untuk memberikan pengalaman eksplorasi open world, dengan ukuran awal sekitar 2 km x 2 km.
+
+Gunakan sistem pembagian dunia menjadi beberapa chunk.
+
+Chunk harus dimuat dan dilepas secara dinamis berdasarkan jarak pemain.
+
+Jangan memuat seluruh objek dunia sekaligus karena dapat menyebabkan penggunaan RAM dan GPU berlebihan.
+
+Setiap wilayah memiliki:
+
+- Landmark.
+- Jalan dan jalur eksplorasi.
+- Tempat rahasia.
+- Material lingkungan.
+- Musuh khusus.
+- Item yang dapat ditemukan.
+- Aktivitas sampingan.
+
+---
+
+3. VISUAL DAN GRAFIS HD
+
+Kualitas visual harus menjadi prioritas penting.
+
+Buat visual 3D HD dengan gaya semi-realistic fantasy.
+
+Jangan membuat dunia terlihat seperti game sederhana yang seluruh modelnya terdiri dari kubus, bola, dan silinder tanpa detail.
+
+Gunakan:
+
+- PBR Material.
+- Normal Map.
+- Roughness Map.
+- Ambient Occlusion.
+- Realistic Lighting.
+- Shadow Mapping.
+- Terrain Textures.
+- Detailed Environment Props.
+- Foliage.
+- Particle Effects.
+- Skybox.
+- Fog.
+- Water Shader.
+- Surface Materials.
+
+Kualitas environment
+
+Lingkungan harus memiliki:
+
+- Pohon dengan bentuk dan dedaunan yang baik.
+- Rumput dengan variasi ukuran.
+- Batu dengan bentuk alami.
+- Jalan tanah.
+- Tanah berbatu.
+- Air danau.
+- Air sungai.
+- Bangunan dengan detail arsitektur.
+- Pagar, jembatan, tong, peti, dan objek lingkungan.
+- Vegetasi dengan variasi.
+- Decal lingkungan bila diperlukan.
+
+Gunakan texture resolution:
+
+- 512x512 untuk aset kecil.
+- 1024x1024 untuk mayoritas aset.
+- 2048x2048 untuk aset penting jika perangkat memungkinkan.
+
+Terapkan LOD (Level of Detail) untuk objek yang jauh.
+
+Objek kecil di kejauhan tidak boleh menggunakan model berpoligon tinggi.
+
+Lighting
+
+Implementasikan:
+
+- Directional Light.
+- Environment Lighting.
+- Dynamic Shadows.
+- Sky Atmosphere.
+- Fog.
+- Day/Night Cycle.
+- Sunrise.
+- Sunset.
+- Night Lighting.
+- Torch Lighting.
+- Dungeon Lighting.
+
+Buat sistem pencahayaan yang tetap efisien pada GPU Mali.
+
+Jangan mengaktifkan efek grafis mahal secara berlebihan.
+
+---
+
+4. KARAKTER UTAMA
+
+Buat karakter utama 3D third-person yang memiliki model lengkap.
+
+Karakter tidak boleh hanya berupa mannequin sederhana atau kumpulan primitive mesh.
+
+Karakter harus mempunyai:
+
+- Kepala.
+- Rambut.
+- Wajah.
+- Tubuh.
+- Tangan.
+- Jari yang proporsional.
+- Kaki.
+- Pakaian.
+- Sepatu.
+- Armor.
+- Senjata.
+
+Gunakan skeletal rigging agar karakter bisa dianimasikan.
+
+Animasi karakter
+
+Wajib tersedia:
+
+1. Idle.
+2. Walking.
+3. Running.
+4. Sprinting.
+5. Jumping.
+6. Falling.
+7. Landing.
+8. Dodging.
+9. Rolling.
+10. Light Attack.
+11. Heavy Attack.
+12. Combo Attack.
+13. Block.
+14. Parry.
+15. Hit Reaction.
+16. Stagger.
+17. Death.
+18. Climbing.
+19. Swimming.
+20. Interacting.
+21. Collecting Item.
+
+Animasi harus memiliki transisi yang halus menggunakan AnimationTree atau sistem animasi Godot yang sesuai.
+
+Jangan membuat animasi gerakan patah-patah.
+
+Gunakan root motion jika sesuai, atau sistem perpindahan karakter yang stabil dan tidak menyebabkan animasi meluncur.
+
+---
+
+5. THIRD-PERSON PLAYER CONTROLLER
+
+Buat kontrol karakter third-person yang responsif.
+
+Fitur:
+
+- Movement.
+- Camera-relative movement.
+- Walking.
+- Running.
+- Sprinting.
+- Jump.
+- Double jump jika sesuai kemampuan karakter.
+- Dodge.
+- Rolling.
+- Gravity.
+- Ground detection.
+- Climbing.
+- Swimming.
+- Interaction.
+
+Kamera mengikuti karakter dari belakang.
+
+Kamera memiliki:
+
+- Smooth Follow.
+- Camera Rotation.
+- Camera Zoom.
+- Camera Collision.
+- Vertical Look.
+- Horizontal Look.
+- Camera Shake.
+- Combat Camera Adjustment.
+
+Kamera jangan sampai menembus bangunan atau dinding.
+
+Saat karakter bertarung, kamera harus menyesuaikan agar pemain bisa melihat karakter dan musuh.
+
+---
+
+6. COMBAT SYSTEM
+
+Buat sistem pertarungan action RPG yang responsif.
+
+Karakter dapat menggunakan beberapa jenis senjata.
+
+Senjata
+
+Minimal tersedia:
+
+1. Sword.
+2. Great Sword.
+3. Dual Blades.
+4. Bow.
+
+Setiap senjata memiliki:
+
+- Model 3D berbeda.
+- Attack Animation.
+- Damage Value.
+- Attack Speed.
+- Range.
+- Critical Chance.
+- Hit Effect.
+- Sound Effect.
+
+Combat mechanic
+
+Implementasikan:
+
+- Light Attack.
+- Heavy Attack.
+- Combo Chain.
+- Charged Attack.
+- Dodge.
+- Block.
+- Perfect Parry.
+- Stamina.
+- Hit Detection.
+- Knockback.
+- Critical Hit.
+- Damage Feedback.
+- Enemy Stagger.
+- Death Animation.
+
+Kombinasi serangan harus benar-benar berfungsi dan menghasilkan animasi yang sesuai.
+
+Buat combo system menggunakan state machine agar serangan tidak berjalan secara acak.
+
+Hindari serangan yang hanya mengurangi HP tanpa efek animasi atau reaksi.
+
+Tambahkan efek:
+
+- Weapon Trail.
+- Hit Spark.
+- Impact Effect.
+- Dust Effect.
+- Small Screen Shake.
+- Combat Sound.
+
+Efek tidak boleh terlalu berlebihan hingga mengganggu performa.
+
+---
+
+7. ENEMY AI
+
+Buat beragam musuh dengan model 3D dan animasi berbeda.
+
+Minimal lima tipe musuh:
+
+Forest Goblin
+
+- Berpatroli.
+- Menemukan pemain.
+- Mengejar pemain.
+- Menyerang menggunakan senjata.
+- Melarikan diri saat HP rendah jika sesuai.
+
+Wild Beast
+
+- Berkeliaran.
+- Bereaksi terhadap jarak pemain.
+- Mengejar atau menyerang.
+- Memiliki animasi serangan dan kematian.
+
+Dark Knight
+
+- Musuh elite.
+- Menggunakan pedang.
+- Dapat melakukan block.
+- Memiliki kombo serangan.
+
+Shadow Archer
+
+- Menjaga jarak.
+- Menyerang dengan panah.
+- Mencari posisi serang.
+
+Ancient Guardian
+
+- Musuh berat.
+- HP tinggi.
+- Serangan kuat.
+- Memiliki pola serangan khusus.
+
+AI Behaviour
+
+Implementasikan:
+
+- Idle State.
+- Patrol State.
+- Detection State.
+- Chase State.
+- Attack State.
+- Defense State.
+- Stagger State.
+- Return State.
+- Death State.
+
+Gunakan NavigationRegion3D dan NavigationAgent3D jika sesuai.
+
+Musuh harus dapat:
+
+- Mendeteksi pemain.
+- Mengikuti pemain.
+- Menyerang.
+- Menerima damage.
+- Bereaksi terhadap serangan.
+- Mengubah perilaku berdasarkan jarak.
+- Kembali ke area patroli ketika pemain menjauh.
+
+Pastikan AI tidak menghabiskan terlalu banyak CPU saat musuh berada jauh dari pemain.
+
+---
+
+8. BOSS BATTLE
+
+Buat minimal dua boss dengan model dan animasi khusus.
+
+Boss 1: The Forest Tyrant
+
+- Berada di Greenveil Forest.
+- Ukuran tubuh lebih besar dari musuh biasa.
+- Serangan area.
+- Serangan charge.
+- Serangan fisik.
+- Health bar khusus.
+- Animasi fase kedua saat HP menurun.
+
+Boss 2: The Ancient Colossus
+
+- Berada di Forgotten Kingdom.
+- Boss berukuran besar.
+- Serangan berat.
+- Serangan jarak jauh.
+- Area attack.
+- Beberapa pola serangan.
+- Fase pertarungan berbeda.
+
+Boss harus memiliki:
+
+- Intro Animation.
+- Boss Health Bar.
+- Unique Attack.
+- Attack Warning.
+- Damage Reaction.
+- Death Animation.
+- Reward.
+
+Boss tidak boleh hanya memiliki HP besar dengan AI musuh biasa.
+
+---
+
+9. OPEN WORLD EXPLORATION
+
+Tambahkan sistem eksplorasi lengkap.
+
+Fitur:
+
+- World Map.
+- Mini Map.
+- Waypoints.
+- Fast Travel.
+- Exploration Points.
+- Treasure Chests.
+- Hidden Areas.
+- Collectible Items.
+- Ruins.
+- Caves.
+- Dungeon Entrances.
+- Environmental Storytelling.
+
+Pemain dapat menemukan:
+
+- Senjata.
+- Armor.
+- Material.
+- Gold.
+- Consumables.
+- Quest Items.
+- Treasure.
+
+Tambahkan sistem interaksi objek.
+
+Pemain dapat membuka peti, mengumpulkan item, mengaktifkan mekanisme, membuka pintu, dan membaca informasi tertentu.
+
+---
+
+10. NPC DAN INTERACTION SYSTEM
+
+Buat NPC dengan model 3D dan animasi.
+
+NPC memiliki:
+
+- Idle Animation.
+- Walking Animation.
+- Talking Animation.
+- Interaction Animation.
+
+Setiap NPC dapat memiliki fungsi berbeda.
+
+Minimal:
+
+- Village Leader.
+- Blacksmith.
+- Merchant.
+- Quest Giver.
+- Villager.
+- Guard.
+- Traveler.
+
+Implementasikan:
+
+- Interaction Detection.
+- Interaction Button.
+- Dialogue UI.
+- Dialogue Choices.
+- Quest Acceptance.
+- Quest Completion.
+- Shop Interface.
+
+NPC tertentu dapat bergerak di sekitar desa berdasarkan rutinitas sederhana.
+
+---
+
+11. QUEST SYSTEM
+
+Buat quest system yang benar-benar berfungsi.
+
+Jenis quest:
+
+- Main Quest.
+- Side Quest.
+- Exploration Quest.
+- Collection Quest.
+- Elimination Quest.
+- Boss Quest.
+
+Minimal buat:
+
+- 8 Main Quests.
+- 10 Side Quests.
+- 5 Exploration Objectives.
+
+Setiap quest memiliki:
+
+- Quest ID.
+- Quest Name.
+- Description.
+- Objective.
+- Progress.
+- Completion State.
+- Reward.
+- Quest Giver.
+
+Buat quest log yang bisa dibuka kapan saja.
+
+Contoh main quest:
+
+1. Awakening.
+2. The Lost Village.
+3. Into Greenveil.
+4. The Ancient Signal.
+5. The Ashen Path.
+6. Forgotten Kingdom.
+7. The First Guardian.
+8. The Fracture.
+
+Pastikan sistem quest tersambung dengan NPC, dunia, combat, dan reward.
+
+---
+
+12. INVENTORY DAN EQUIPMENT
+
+Buat inventory yang berfungsi.
+
+Kategori:
+
+- Weapons.
+- Armor.
+- Consumables.
+- Materials.
+- Quest Items.
+- Collectibles.
+
+Fitur:
+
+- Item Pickup.
+- Item Storage.
+- Item Description.
+- Item Quantity.
+- Item Equip.
+- Item Unequip.
+- Item Drop.
+- Item Use.
+- Item Sorting.
+
+Equipment slot:
+
+- Weapon.
+- Helmet.
+- Chest Armor.
+- Gloves.
+- Boots.
+- Accessory.
+
+Pemain dapat mengganti senjata dan armor.
+
+Perubahan equipment harus terlihat pada karakter ketika memungkinkan.
+
+---
+
+13. LEVEL DAN CHARACTER PROGRESSION
+
+Buat sistem progres karakter.
+
+Fitur:
+
+- Player Level.
+- Experience Points.
+- EXP Reward.
+- Skill Points.
+- Health.
+- Stamina.
+- Attack.
+- Defense.
+- Critical Rate.
+
+Buat skill tree sederhana tetapi fungsional.
+
+Kategori skill:
+
+- Sword Mastery.
+- Heavy Attack.
+- Stamina.
+- Defensive Ability.
+- Dodge Mastery.
+- Critical Strike.
+
+Pemain mendapatkan EXP melalui:
+
+- Mengalahkan musuh.
+- Menyelesaikan quest.
+- Mengalahkan boss.
+- Menemukan lokasi tertentu.
+
+---
+
+14. UI/UX GAME
+
+Buat UI dengan kualitas seperti game action adventure komersial.
+
+Gunakan desain fantasy adventure modern.
+
+Main Menu
+
+Wajib tersedia:
+
+- Start Game.
+- Continue.
+- New Game.
+- Settings.
+- Credits.
+- Exit.
+
+Menu harus memiliki background 3D atau ilustrasi dunia game yang menarik.
+
+In-Game HUD
+
+Tampilkan:
+
+- Health Bar.
+- Stamina Bar.
+- EXP Bar.
+- Level.
+- Mini Map.
+- Quest Tracker.
+- Interaction Prompt.
+- Weapon Indicator.
+- Consumable Slots.
+
+Pause Menu
+
+Tersedia:
+
+- Resume.
+- Inventory.
+- Equipment.
+- Quest.
+- Map.
+- Skills.
+- Settings.
+- Save Game.
+- Main Menu.
+
+UI tambahan
+
+Buat:
+
+- Inventory Screen.
+- Equipment Screen.
+- Character Status.
+- Skill Tree.
+- Quest Journal.
+- World Map.
+- Dialogue Box.
+- Shop.
+- Loot Notification.
+- Damage Indicator.
+- Boss Health Bar.
+- Loading Screen.
+
+Semua UI harus memiliki ukuran yang sesuai untuk layar Android.
+
+Jangan menggunakan tombol yang terlalu kecil.
+
+---
+
+15. KONTROL ANDROID
+
+Kontrol wajib dirancang untuk layar sentuh.
+
+Buat virtual gamepad dengan desain modern.
+
+Kiri layar
+
+- Joystick movement.
+- Gerakan karakter 360 derajat.
+
+Kanan layar
+
+- Camera control area.
+- Attack Button.
+- Heavy Attack Button.
+- Dodge Button.
+- Jump Button.
+- Interact Button.
+- Block Button.
+
+Buat tombol yang mudah dijangkau dengan ibu jari.
+
+Fitur:
+
+- Configurable Button Layout jika memungkinkan.
+- Adjustable UI Scale.
+- Touch Sensitivity.
+- Camera Sensitivity.
+- Vibration Toggle.
+- Controller Support.
+
+Kontrol harus benar-benar tersambung dengan gameplay, bukan hanya tampilan visual.
+
+Pastikan input multi-touch berjalan baik, misalnya pemain dapat menggerakkan joystick sambil memutar kamera dan menyerang.
+
+---
+
+16. AUDIO SYSTEM
+
+Buat sistem audio game lengkap.
+
+Audio lingkungan:
+
+- Forest Ambience.
+- Wind.
+- Water.
+- Birds.
+- Village Ambience.
+- Cave Ambience.
+- Dungeon Ambience.
+
+Audio gameplay:
+
+- Footsteps.
+- Sword Swing.
+- Heavy Attack.
+- Hit Impact.
+- Dodge.
+- Jump.
+- Landing.
+- Enemy Attack.
+- Enemy Death.
+- Boss Intro.
+- Chest Opening.
+- Item Pickup.
+
+Audio UI:
+
+- Button Click.
+- Menu Navigation.
+- Quest Complete.
+- Level Up.
+- Inventory Interaction.
+
+Tambahkan background music:
+
+- Main Menu Music.
+- Exploration Music.
+- Combat Music.
+- Boss Music.
+- Village Music.
+
+Gunakan audio original atau aset yang memiliki izin penggunaan jelas.
+
+Buat pengaturan volume terpisah untuk:
+
+- Master.
+- Music.
+- SFX.
+- Ambient.
+
+---
+
+17. WEATHER DAN DAY/NIGHT SYSTEM
+
+Buat sistem waktu dunia.
+
+Siklus:
+
+- Morning.
+- Afternoon.
+- Evening.
+- Night.
+
+Tambahkan cuaca:
+
+- Clear.
+- Cloudy.
+- Rain.
+- Fog.
+
+Cuaca memengaruhi visual lingkungan.
+
+Contoh:
+
+- Saat hujan, terdapat efek hujan dan permukaan tertentu menjadi lebih basah.
+- Saat malam, pencahayaan berubah.
+- Saat berkabut, jarak pandang berkurang.
+
+Semua efek harus dapat dinonaktifkan atau disederhanakan melalui pengaturan grafis.
+
+---
+
+18. SAVE DAN LOAD SYSTEM
+
+Sistem save harus benar-benar berfungsi.
+
+Simpan data:
+
+- Player Position.
+- Player Level.
+- Player EXP.
+- Player Health.
+- Inventory.
+- Equipment.
+- Quest Progress.
+- Defeated Bosses.
+- Unlocked Areas.
+- Player Skills.
+- World State.
+
+Sediakan minimal tiga save slots.
+
+Implementasikan:
+
+- Save Game.
+- Load Game.
+- Auto Save.
+- Checkpoint Save.
+- New Game.
+- Continue Game.
+
+Gunakan penyimpanan lokal Android melalui user://.
+
+Pastikan proses save tidak menghapus data yang sebelumnya tersimpan ketika aplikasi ditutup mendadak.
+
+---
+
+19. SISTEM ASSET 3D
+
+Ini merupakan bagian yang sangat penting.
+
+Buat proyek memiliki asset 3D yang benar-benar dapat digunakan.
+
+Jangan menggunakan objek pengganti berupa kubus berwarna sebagai hasil akhir.
+
+Asset yang wajib tersedia:
+
+Character Assets
+
+- Player Character.
+- Goblin.
+- Wild Beast.
+- Dark Knight.
+- Shadow Archer.
+- Forest Tyrant.
+- Ancient Colossus.
+- NPC Villagers.
+
+Environment Assets
+
+- Trees.
+- Grass.
+- Bushes.
+- Rocks.
+- Mountains.
+- Houses.
+- Castle.
+- Ruins.
+- Bridges.
+- Rivers.
+- Lakes.
+- Caves.
+- Dungeon Props.
+- Wooden Structures.
+
+Weapon Assets
+
+- Sword.
+- Great Sword.
+- Dual Blades.
+- Bow.
+- Arrow.
+
+Item Assets
+
+- Potion.
+- Treasure Chest.
+- Gold.
+- Materials.
+- Equipment.
+- Quest Objects.
+
+VFX Assets
+
+- Sword Trail.
+- Hit Effect.
+- Dust.
+- Magic Effect.
+- Fire.
+- Smoke.
+- Rain.
+- Waterfall.
+
+Jika menggunakan asset dari pihak ketiga:
+
+- Gunakan asset yang memiliki lisensi jelas.
+- Utamakan CC0 atau lisensi yang mengizinkan penggunaan dalam game.
+- Catat sumber, lisensi, dan atribusinya.
+- Jangan mengklaim asset pihak ketiga sebagai asset buatan sendiri.
+- Jangan menggunakan asset berhak cipta tanpa izin.
+
+Jika AI Studio tidak dapat menghasilkan file model 3D secara langsung, buat pipeline asset yang nyata dan dapat dijalankan, termasuk file sumber generator Blender Python bila diperlukan, format ekspor, manifest asset, dan petunjuk impor ke Godot.
+
+Buat daftar asset yang benar-benar tersedia. Jangan menyebut asset telah dibuat jika file-nya tidak ada.
+
+---
+
+20. STRUKTUR FOLDER PROYEK
+
+Gunakan struktur proyek yang profesional dan modular.
+
+Buat struktur seperti berikut:
+
+res://
+├── project.godot
+├── icon.svg
+│
+├── scenes/
+│   ├── main/
+│   │   ├── main_menu.tscn
+│   │   ├── game_world.tscn
+│   │   └── loading_screen.tscn
+│   │
+│   ├── player/
+│   │   ├── player.tscn
+│   │   └── player_camera.tscn
+│   │
+│   ├── enemies/
+│   │   ├── goblin.tscn
+│   │   ├── wild_beast.tscn
+│   │   ├── dark_knight.tscn
+│   │   ├── shadow_archer.tscn
+│   │   └── ancient_guardian.tscn
+│   │
+│   ├── bosses/
+│   │   ├── forest_tyrant.tscn
+│   │   └── ancient_colossus.tscn
+│   │
+│   ├── npc/
+│   │   ├── villager.tscn
+│   │   ├── merchant.tscn
+│   │   └── quest_giver.tscn
+│   │
+│   ├── world/
+│   │   ├── world_root.tscn
+│   │   ├── terrain.tscn
+│   │   ├── greenveil_forest.tscn
+│   │   ├── ashen_highlands.tscn
+│   │   ├── silverlake_valley.tscn
+│   │   ├── forgotten_kingdom.tscn
+│   │   └── dawnreach_village.tscn
+│   │
+│   ├── objects/
+│   ├── weapons/
+│   ├── items/
+│   ├── effects/
+│   └── ui/
+│
+├── scripts/
+│   ├── player/
+│   ├── combat/
+│   ├── enemies/
+│   ├── bosses/
+│   ├── npc/
+│   ├── quests/
+│   ├── inventory/
+│   ├── equipment/
+│   ├── progression/
+│   ├── interaction/
+│   ├── world/
+│   ├── save_system/
+│   ├── audio/
+│   ├── ui/
+│   └── utilities/
+│
+├── assets/
+│   ├── characters/
+│   ├── enemies/
+│   ├── bosses/
+│   ├── npc/
+│   ├── environment/
+│   ├── weapons/
+│   ├── items/
+│   ├── textures/
+│   ├── materials/
+│   ├── animations/
+│   ├── audio/
+│   ├── music/
+│   ├── vfx/
+│   └── fonts/
+│
+├── data/
+│   ├── items/
+│   ├── weapons/
+│   ├── enemies/
+│   ├── quests/
+│   ├── dialogue/
+│   └── skills/
+│
+├── addons/
+├── android/
+├── tests/
+└── documentation/
+
+Kamu boleh menambahkan folder jika dibutuhkan, tetapi pertahankan pemisahan sistem agar proyek mudah diperbaiki dan dikembangkan.
+
+Jangan membuat semua gameplay dalam satu file GDScript.
+
+Gunakan Godot Autoload untuk sistem global yang memang membutuhkannya, misalnya:
+
+- GameManager.
+- SaveManager.
+- AudioManager.
+- QuestManager.
+- InventoryManager.
+
+---
+
+21. OPTIMASI ANDROID
+
+Target utama adalah perangkat Android kelas menengah.
+
+Perangkat acuan:
+
+- MediaTek Helio G100.
+- GPU Mali-G57 MC2.
+- RAM 8 GB.
+- Android 14.
+- Layar 720p atau lebih tinggi.
+
+Target performa:
+
+- 30 FPS stabil sebagai target utama.
+- 60 FPS opsional pada perangkat yang lebih kuat.
+- Waktu loading terkendali.
+- Penggunaan RAM dan GPU terkendali.
+- Tidak mudah mengalami force close.
+- Tidak terjadi penurunan performa berlebihan setelah bermain lama.
+
+Implementasikan:
+
+1. Dynamic Resolution Scaling jika diperlukan.
+2. LOD untuk model 3D.
+3. Occlusion Culling.
+4. Frustum Culling.
+5. MultiMesh untuk vegetasi berulang.
+6. Object Pooling untuk objek yang sering dibuat.
+7. Chunk-based World Streaming.
+8. Texture Compression.
+9. Optimized Collision.
+10. Reduced Shadow Quality pada preset rendah.
+11. Distance-based AI Updates.
+12. Distance-based Animation Updates.
+13. Particle Limits.
+14. Audio Streaming untuk file musik besar.
+
+Sediakan pengaturan grafis:
+
+Low
+
+- Resolusi render rendah.
+- Shadow sederhana.
+- Vegetation density rendah.
+- Efek minimal.
+- Target 30 FPS.
+
+Medium
+
+- Resolusi render sedang.
+- Shadow sedang.
+- Vegetation density sedang.
+- Efek standar.
+- Target 30 FPS.
+
+High
+
+- Resolusi render tinggi.
+- Shadow lebih baik.
+- Vegetation density tinggi.
+- Efek lebih lengkap.
+- Target 30–60 FPS sesuai kemampuan perangkat.
+
+Tambahkan pilihan FPS:
+
+- 30 FPS.
+- 60 FPS.
+
+Gunakan batas FPS yang benar-benar diterapkan oleh game.
+
+Jangan menggunakan pengaturan yang hanya mengubah tampilan menu tetapi tidak berdampak pada rendering.
+
+---
+
+22. ANDROID BUILD SYSTEM
+
+Proyek harus bisa dibangun menjadi APK Android.
+
+Konfigurasi wajib:
+
+- Package Name yang valid.
+- Application Name.
+- Version Code.
+- Version Name.
+- ARM64-v8a.
+- Landscape Orientation.
+- Android Permissions seminimal mungkin.
+- Internet permission tidak diperlukan untuk gameplay offline.
+- App Icon.
+- Splash Screen.
+- Proper Export Preset.
+
+Sediakan:
+
+- File konfigurasi Android.
+- Export preset.
+- Android build documentation.
+- Release APK.
+- Release AAB jika memungkinkan.
+
+Buat GitHub Actions Workflow di:
+
+.github/workflows/android-build.yml
+
+Workflow harus:
+
+1. Checkout repository.
+2. Mengunduh dan menyiapkan Godot 4.7.2 yang sesuai.
+3. Mengunduh export templates yang cocok.
+4. Menyiapkan Android SDK dan Java yang diperlukan.
+5. Memeriksa struktur proyek.
+6. Menjalankan import resource.
+7. Menjalankan pemeriksaan headless bila didukung.
+8. Mengekspor APK ARM64.
+9. Menyimpan APK sebagai GitHub Actions Artifact.
+10. Menampilkan status build yang jelas.
+
+Jangan membuat workflow palsu yang hanya menjalankan perintah echo.
+
+Jangan menggunakan path export yang tidak sesuai dengan konfigurasi proyek.
+
+Jangan mengasumsikan file keystore tersedia. Untuk build pengujian, sediakan konfigurasi debug yang valid. Jelaskan proses signing release secara terpisah.
+
+---
+
+23. QUALITY ASSURANCE DAN TESTING
+
+Sebelum menyatakan game selesai, lakukan pemeriksaan terhadap:
+
+- File project.godot.
+- Seluruh file scene.
+- Seluruh script.
+- Resource path.
+- Script inheritance.
+- Autoload.
+- Input Map.
+- AnimationTree.
+- Navigation.
+- Collision.
+- Mobile rendering.
+- Android export settings.
+- Save and Load.
+- UI interaction.
+- Gameplay flow.
+
+Pastikan:
+
+1. Game dapat dibuka melalui Godot.
+2. Main menu dapat digunakan.
+3. New Game dapat memulai permainan.
+4. Karakter dapat bergerak.
+5. Kamera dapat dikontrol.
+6. Karakter dapat melompat.
+7. Combat dapat digunakan.
+8. Musuh dapat mendeteksi dan menyerang pemain.
+9. Pemain dapat menerima dan memberikan damage.
+10. NPC dapat diajak berinteraksi.
+11. Quest dapat diterima dan diselesaikan.
+12. Item dapat dikumpulkan.
+13. Inventory dapat dibuka.
+14. Equipment dapat digunakan.
+15. Save dan Load bekerja.
+16. Game dapat diekspor ke APK Android.
+
+Buat test atau pemeriksaan otomatis untuk sistem yang dapat diuji secara otomatis.
+
+Jika environment AI Studio tidak memiliki Godot Engine, jangan mengaku sudah menjalankan atau menguji proyek. Sebagai gantinya, buat pemeriksaan statis dan sediakan instruksi validasi yang dapat dijalankan di Godot.
+
+Perbaiki seluruh error yang ditemukan sebelum memberikan hasil akhir.
+
+---
+
+24. ATURAN PENTING SELAMA PEMBUATAN
+
+Saya tidak menginginkan proyek setengah jadi.
+
+Ikuti aturan mutlak berikut:
+
+1. Jangan hanya membuat kerangka folder tanpa isi.
+2. Jangan hanya menampilkan contoh kode.
+3. Jangan memberikan pseudocode untuk fitur utama.
+4. Jangan membuat menu yang tombolnya tidak berfungsi.
+5. Jangan membuat karakter tanpa sistem movement.
+6. Jangan membuat musuh yang tidak memiliki AI.
+7. Jangan membuat inventory yang hanya berupa tampilan.
+8. Jangan membuat quest yang tidak dapat diselesaikan.
+9. Jangan menggunakan objek placeholder sebagai asset final.
+10. Jangan menghilangkan file konfigurasi penting.
+11. Jangan menggunakan path resource yang tidak ada.
+12. Jangan membuat script yang saling bertentangan.
+13. Jangan menyebut fitur selesai jika belum diimplementasikan.
+14. Jangan menghapus fitur sebelumnya ketika menambahkan fitur baru.
+15. Jangan membuat ulang sistem yang sudah bekerja tanpa alasan teknis.
+16. Jangan mengarang hasil pengujian.
+17. Pastikan semua fitur terhubung satu sama lain.
+
+Jika terdapat keterbatasan dalam pembuatan model atau animasi, berikan alternatif yang benar-benar dapat dijalankan dan jelaskan keterbatasannya.
+
+Prioritaskan gameplay yang stabil daripada menambahkan banyak fitur yang tidak berfungsi.
+
+---
+
+25. TAHAPAN PENGEMBANGAN
+
+Bangun proyek secara bertahap, tetapi seluruh tahap harus menjadi satu proyek yang konsisten.
+
+PHASE 1 — PROJECT FOUNDATION
+
+- Konfigurasi Godot.
+- Struktur folder.
+- Main menu.
+- Game world.
+- Player controller.
+- Camera system.
+- Android touch controls.
+
+PHASE 2 — CORE GAMEPLAY
+
+- Combat system.
+- Enemy AI.
+- Health system.
+- Stamina system.
+- Weapon system.
+- Animations.
+
+PHASE 3 — OPEN WORLD
+
+- Terrain.
+- Five world regions.
+- Environment assets.
+- World streaming.
+- Exploration.
+- Day/night cycle.
+
+PHASE 4 — RPG SYSTEM
+
+- NPC.
+- Dialogue.
+- Quest system.
+- Inventory.
+- Equipment.
+- Character progression.
+- Skill tree.
+
+PHASE 5 — GAME CONTENT
+
+- Boss battle.
+- Dungeons.
+- Treasure.
+- Side quests.
+- Main quests.
+- Collectibles.
+
+PHASE 6 — PRESENTATION
+
+- HD materials.
+- Lighting.
+- VFX.
+- Sound.
+- Music.
+- UI polish.
+- Settings.
+
+PHASE 7 — ANDROID RELEASE
+
+- Performance optimization.
+- Save system verification.
+- Android configuration.
+- APK export.
+- GitHub Actions.
+- Final testing.
+
+Semua phase harus menggunakan struktur dan resource yang sama. Jangan membuat proyek terpisah pada setiap fase.
+
+---
+
+26. OUTPUT YANG HARUS DIHASILKAN
+
+Hasil akhir harus mencakup:
+
+1. Proyek Godot lengkap.
+2. File project.godot.
+3. Seluruh scene yang digunakan.
+4. Seluruh script GDScript.
+5. Seluruh konfigurasi input.
+6. Seluruh UI.
+7. Asset model 3D.
+8. Material dan tekstur.
+9. Animasi.
+10. Audio.
+11. Sistem gameplay.
+12. Dunia open world.
+13. Sistem quest.
+14. Sistem inventory.
+15. Sistem save/load.
+16. Konfigurasi Android.
+17. GitHub Actions.
+18. README.md.
+19. ASSET_LICENSES.md.
+20. BUILD_GUIDE.md.
+21. TEST_REPORT.md.
+22. APK Android jika fasilitas build tersedia.
+
+README harus menjelaskan cara membuka proyek di Godot dan menjalankannya.
+
+BUILD_GUIDE harus menjelaskan cara menghasilkan APK.
+
+TEST_REPORT harus membedakan fitur yang benar-benar sudah diuji, fitur yang hanya diperiksa secara statis, dan fitur yang belum dapat diuji.
+
+Jangan memberikan kode secara terpotong.
+
+Jika batas keluaran AI Studio tidak cukup untuk menghasilkan seluruh file sekaligus, lanjutkan secara berurutan menggunakan file manifest. Pertahankan seluruh file dan perubahan sebelumnya. Jangan mengulang dari awal dan jangan mengganti kode yang sudah benar dengan kode contoh.
+
+FINAL OBJECTIVE
+
+Saya menginginkan sebuah game 3D Open World Action Adventure yang memiliki pengalaman bermain seperti game action adventure pada umumnya.
+
+Game harus memiliki:
+
+- Dunia yang luas dan dapat dijelajahi.
+- Visual HD.
+- Karakter 3D dengan animasi.
+- Combat yang responsif.
+- Musuh dengan AI.
+- Boss battle.
+- NPC dan quest.
+- Inventory dan equipment.
+- Progression system.
+- Day/night cycle.
+- Cuaca.
+- Audio.
+- UI lengkap.
+- Save/load.
+- Kontrol layar sentuh.
+- Optimasi Android.
+- Build APK yang dapat dipasang langsung di perangkat.
+
+Mulailah dengan membangun proyek nyata, bukan sekadar menjelaskan rencana pengembangan.
+
+Setiap fitur yang dibuat harus memiliki implementasi, koneksi ke sistem game, dan file yang benar-benar tersedia di dalam proyek.
+
+Prioritas tertinggi: GAME HARUS DAPAT DIBUKA, DIMAINKAN, DAN DIBUILD MENJADI APK ANDROID.

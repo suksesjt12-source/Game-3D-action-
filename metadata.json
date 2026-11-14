@@ -1,0 +1,6 @@
+{
+  "name": "Aetherfall",
+  "description": "3D Open World Action Adventure RPG set in the fractured fantasy frontier of Aetherfall.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
