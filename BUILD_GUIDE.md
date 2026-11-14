@@ -1,40 +1,102 @@
-# BUILD GUIDE — AETHERFALL: THE LOST FRONTIER
 
-## Prerequisites
+# BUILD GUIDE — AETHERFALL
 
-- **Android SDK** (Compile SDK 36, Min SDK 24 / Android 7.0+, Target SDK 36)
-- **JDK 17** or **JDK 11**
-- **Gradle** (configured in `gradle/wrapper/gradle-wrapper.properties`)
+## Requirements
 
-## Building Debug APK (Testing)
+- JDK 17
+- Gradle 9.3.1
+- Android SDK Platform 36.1
+- Android Build Tools 36.1.0
+- Android Gradle Plugin 9.1.1
+- Kotlin 2.2.10
 
-From the repository root:
+## Build Debug APK
+
+Open terminal in project root.
+
+Run:
 
 ```bash
-gradle :app:assembleDebug
+gradle --no-daemon :app:testDebugUnitTest
 ```
 
-Output APK path:
-`app/build/outputs/apk/debug/app-debug.apk`
+Then:
 
-## Building Release APK / Android App Bundle (AAB)
+```bash
+gradle --no-daemon :app:assembleDebug
+```
 
-1. Generate or provide a release upload keystore (`my-upload-key.jks`) with alias `upload`.
-2. Export signing credentials as environment variables:
-   ```bash
-   export KEYSTORE_PATH=/path/to/my-upload-key.jks
-   export STORE_PASSWORD=your_store_password
-   export KEY_PASSWORD=your_key_password
-   ```
-3. Run:
-   ```bash
-   gradle :app:assembleRelease
-   gradle :app:bundleRelease
-   ```
-4. Outputs:
-   - Release APK: `app/build/outputs/apk/release/app-release.apk`
-   - Release AAB: `app/build/outputs/bundle/release/app-release.aab`
+APK location:
 
-## Automated CI Build
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
 
-See `.github/workflows/android-build.yml` for the automated GitHub Actions pipeline that verifies project structure, executes unit/Robolectric tests, builds the APK/AAB, and uploads the APK artifact.
+## Build Release AAB
+
+Prepare an upload keystore with alias:
+
+```text
+upload
+```
+
+Set environment variables:
+
+```bash
+export KEYSTORE_PATH=/path/to/my-upload-key.jks
+export STORE_PASSWORD=your_store_password
+export KEY_PASSWORD=your_key_password
+```
+
+Run:
+
+```bash
+gradle :app:bundleRelease
+```
+
+Output:
+
+```text
+app/build/outputs/bundle/release/app-release.aab
+```
+
+## GitHub Actions
+
+The repository includes:
+
+```text
+.github/workflows/android-build.yml
+```
+
+Every push to main triggers:
+
+1. Java setup.
+2. Gradle setup.
+3. Android SDK setup.
+4. Project verification.
+5. Unit testing.
+6. Debug APK compilation.
+7. APK validation.
+8. Artifact upload.
+
+Release AAB is optional and requires signing credentials.
+
+For GitHub Actions release signing, configure these repository secrets:
+
+- ANDROID_KEYSTORE_BASE64
+- STORE_PASSWORD
+- KEY_PASSWORD
+
+The debug APK does not require a release keystore.
+
+## Download APK
+
+Open the repository's Actions page.
+
+Select the successful Android APK build.
+
+Download the artifact named:
+
+```text
+Aetherfall-Debug-APK
+```
